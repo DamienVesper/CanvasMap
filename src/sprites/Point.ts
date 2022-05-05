@@ -14,7 +14,7 @@ interface PointOpts {
         width: number
     }
 }
-class Point extends Sprite {
+class Point extends Sprite implements PointOpts {
     radius: PointOpts[`radius`];
 
     fill: PointOpts[`fill`];

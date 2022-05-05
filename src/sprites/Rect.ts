@@ -16,7 +16,7 @@ interface RectOpts {
     }
 }
 
-class Rect extends Sprite {
+class Rect extends Sprite implements RectOpts {
     width: RectOpts[`width`];
     height: RectOpts[`height`];
 

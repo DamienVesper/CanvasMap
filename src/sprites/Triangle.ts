@@ -16,7 +16,7 @@ interface TriangleOpts {
     }
 }
 
-class Triangle extends Sprite {
+class Triangle extends Sprite implements TriangleOpts {
     size: TriangleOpts[`size`];
     rotation: TriangleOpts[`rotation`];
 
