@@ -4,7 +4,6 @@ import Sprite from './sprites/Sprite';
  * The canvas map instance.
  */
 class CanvasMap {
-    canvas: HTMLCanvasElement;
     context: CanvasRenderingContext2D;
 
     elements: Map<string, Sprite>;
@@ -17,7 +16,6 @@ class CanvasMap {
         const context = canvas.getContext(`2d`);
         if (context === null) throw new Error(`[CanvasMap]: Error getting canvas context.`);
 
-        this.canvas = canvas;
         this.context = context;
 
         this.elements = new Map();
@@ -50,26 +48,26 @@ class CanvasMap {
      */
     public readonly draw = (): void => {
         const fov = {
-            width: this.canvas.width * this.zoom,
-            height: this.canvas.height * this.zoom
+            width: this.context.canvas.width * this.zoom,
+            height: this.context.canvas.height * this.zoom
         };
 
-        this.scale.width = (1 / this.world.width) * this.canvas.width;
-        this.scale.height = (1 / this.world.height) * this.canvas.height;
+        this.scale.width = (1 / this.world.width) * this.context.canvas.width;
+        this.scale.height = (1 / this.world.height) * this.context.canvas.height;
 
         this.context.resetTransform();
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 
         if (this.world.rotation !== 0) {
-            this.context.translate(this.canvas.width / 2, this.canvas.height / 2);
+            this.context.translate(this.context.canvas.width / 2, this.context.canvas.height / 2);
             this.context.rotate(this.world.rotation);
-            this.context.translate(-this.canvas.width / 2, -this.canvas.height / 2);
+            this.context.translate(-this.context.canvas.width / 2, -this.context.canvas.height / 2);
         }
 
-        this.context.translate(-((fov.width - this.canvas.width) / 2), -((fov.height - this.canvas.height) / 2));
+        this.context.translate(-((fov.width - this.context.canvas.width) / 2), -((fov.height - this.context.canvas.height) / 2));
         this.context.scale(this.zoom, this.zoom);
 
-        for (const sprite of this.elements.values()) sprite.draw();
+        for (const sprite of this.elements.values()) sprite.draw(this.context);
     };
 }
 
