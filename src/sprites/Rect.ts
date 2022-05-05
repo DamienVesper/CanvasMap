@@ -17,8 +17,8 @@ interface RectOpts {
 }
 
 class Rect extends Sprite {
-    width: number;
-    height: number;
+    width: RectOpts[`width`];
+    height: RectOpts[`height`];
 
     fill: RectOpts[`fill`];
     stroke: RectOpts[`stroke`];

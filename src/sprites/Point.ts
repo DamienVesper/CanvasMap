@@ -15,7 +15,7 @@ interface PointOpts {
     }
 }
 class Point extends Sprite {
-    radius: number;
+    radius: PointOpts[`radius`];
 
     fill: PointOpts[`fill`];
     stroke: PointOpts[`stroke`];
