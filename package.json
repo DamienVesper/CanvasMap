@@ -1,0 +1,34 @@
+{
+  "name": "@damienvesper/canvas-map",
+  "description": "A library for HTML5 Canvas.",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev:lint": "eslint . --fix --ext .ts",
+    "dev:lint:ci": "eslint . --ext .ts"
+  },
+  "engines": {
+    "node": ">=18.1.0",
+    "pnpm": ">=7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamienVesper/CanvasMap"
+  },
+  "contributors": [
+    "DamienVesper"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/webpack": "^5.28.0",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.14.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "typescript": "^4.6.4"
+  }
+}
