@@ -1,0 +1,19 @@
+# Node modules
+node_modules
+
+# Source
+src/
+
+# GitHub
+.github/
+.gitignore
+
+# ESLint
+.eslintignore
+.eslintrc.json
+
+# Packages
+pnpm-lock.yaml
+
+# Typescript configuration
+tsconfig.json

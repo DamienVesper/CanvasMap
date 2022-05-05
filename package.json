@@ -1,12 +1,14 @@
 {
   "name": "@damienvesper/canvas-map",
   "description": "A library for HTML5 Canvas.",
-  "version": "0.0.0",
-  "main": "src/index.ts",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "tsc",
     "dev:lint": "eslint . --fix --ext .ts",
-    "dev:lint:ci": "eslint . --ext .ts"
+    "dev:lint:ci": "eslint . --ext .ts",
+    "cd:prepublish": "pnpm build && cp package.json ./dist/package.json"
   },
   "engines": {
     "node": ">=18.1.0",
