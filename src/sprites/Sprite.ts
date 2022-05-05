@@ -5,6 +5,17 @@ type SpriteData = Record<`x` | `y` | `z` | `r` | `width` |`height` | `size` | `r
 class Sprite {
     id: string;
 
+    x: number;
+    y: number;
+
+    r: number;
+
+    width: number;
+    height: number;
+
+    size: number;
+    rotation: number;
+
     scale: Record<`width` | `height`, number>;
 
     draw: () => void;
@@ -18,21 +29,21 @@ class Sprite {
         };
     }
 
-    public readonly getData = (data: Partial<SpriteData>): Partial<SpriteData> => {
-        const newData = Object.assign({}, data);
+    public readonly getData = (): Partial<SpriteData> => {
+        const data: Partial<SpriteData> = {};
 
-        if (data.x !== undefined) newData.x = data.x * this.scale.width;
-        if (data.y !== undefined) newData.y = data.y * this.scale.width;
+        if (this.x !== undefined) data.x = this.x * this.scale.width;
+        if (this.y !== undefined) data.y = this.y * this.scale.width;
 
-        if (data.r !== undefined) newData.r = data.r * this.scale.width;
+        if (this.r !== undefined) data.r = this.r * this.scale.width;
 
-        if (data.width !== undefined) newData.r = data.width * this.scale.width;
-        if (data.height !== undefined) newData.r = data.height * this.scale.height;
+        if (this.width !== undefined) data.width = this.width * this.scale.width;
+        if (this.height !== undefined) data.height = this.height * this.scale.height;
 
-        if (data.size !== undefined) newData.r = data.size * this.scale.width;
-        if (data.rotation !== undefined) newData.rotation = data.rotation;
+        if (this.size !== undefined) data.size = this.size * this.scale.width;
+        if (this.rotation !== undefined) data.rotation = this.rotation;
 
-        return newData;
+        return data;
     };
 }
 

@@ -60,10 +60,11 @@ class CanvasMap {
         this.context.resetTransform();
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        this.world.rotation !== 0 && 
-            (this.context.translate(this.canvas.width / 2, this.canvas.height / 2),
-            this.context.rotate(this.world.rotation),
-            this.context.translate(-this.canvas.width / 2, -this.canvas.height / 2));
+        if (this.world.rotation !== 0) {
+            this.context.translate(this.canvas.width / 2, this.canvas.height / 2);
+            this.context.rotate(this.world.rotation);
+            this.context.translate(-this.canvas.width / 2, -this.canvas.height / 2);
+        }
 
         this.context.translate(-((fov.width - this.canvas.width) / 2), -((fov.height - this.canvas.height) / 2));
         this.context.scale(this.zoom, this.zoom);
