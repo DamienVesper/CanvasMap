@@ -1,15 +1,10 @@
-import Sprite from './Sprite';
+import { Sprite, SpriteOpts } from './Sprite';
 
-interface RectOpts {
-    id?: string
-
-    x: number
-    y: number
-
-    width: number,
+interface RectOpts extends SpriteOpts {
+    width: number
     height: number
 
-    fill?: string;
+    fill?: string
     stroke?: {
         color: string
         width: number
@@ -24,7 +19,7 @@ class Rect extends Sprite implements RectOpts {
     stroke: RectOpts[`stroke`];
 
     constructor (opts: RectOpts) {
-        super(opts.id);
+        super(opts.id, opts.x, opts.y);
 
         this.width = opts.width;
         this.height = opts.height;

@@ -1,15 +1,10 @@
-import Sprite from './Sprite';
+import { Sprite, SpriteOpts } from './Sprite';
 
-interface TriangleOpts {
-    id?: string
+interface TriangleOpts extends SpriteOpts {
+    size: number
+    rotation: number
 
-    x: number
-    y: number
-
-    size: number;
-    rotation: number;
-
-    fill?: string;
+    fill?: string
     stroke?: {
         color: string
         width: number
@@ -24,7 +19,7 @@ class Triangle extends Sprite implements TriangleOpts {
     stroke: TriangleOpts[`stroke`];
 
     constructor (opts: TriangleOpts) {
-        super(opts.id);
+        super(opts.id, opts.x, opts.y);
 
         this.size = opts.size;
         this.rotation = opts.rotation;
@@ -42,7 +37,6 @@ class Triangle extends Sprite implements TriangleOpts {
 
         const altitude = this.size / 2;
         if (this.fill !== undefined) {
-
             context.fillStyle = this.fill;
 
             context.beginPath();
@@ -65,6 +59,7 @@ class Triangle extends Sprite implements TriangleOpts {
             context.stroke();
         }
 
+        context.rotate(-this.rotation);
         context.restore();
     };
 }

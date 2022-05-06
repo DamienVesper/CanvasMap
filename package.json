@@ -1,7 +1,7 @@
 {
   "name": "@damienvesper/canvas-map",
   "description": "A library for HTML5 Canvas.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {

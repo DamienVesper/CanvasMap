@@ -1,19 +1,25 @@
-import { createID } from '../Snowflake';
+interface SpriteOpts {
+    id: string
 
-type SpriteData = Record<`x` | `y` | `z` | `r` | `width` |`height` | `size` | `rotation`, number>;
+    x: number
+    y: number
+}
 
-class Sprite {
-    id: string;
+class Sprite implements SpriteOpts {
+    readonly id: string;
 
     x: number;
     y: number;
 
     scale: Record<`width` | `height`, number>;
 
-    draw: (context: CanvasRenderingContext2D) => void;
+    public readonly draw: (context: CanvasRenderingContext2D) => void;
 
-    constructor (id?: Sprite[`id`]) {
-        this.id = id ?? createID();
+    constructor (id: Sprite[`id`], x: Sprite[`x`], y: Sprite[`y`]) {
+        this.id = id;
+
+        this.x = x;
+        this.y = y;
 
         this.scale = {
             width: 0,
@@ -22,4 +28,7 @@ class Sprite {
     }
 }
 
-export default Sprite;
+export {
+    Sprite,
+    SpriteOpts
+};

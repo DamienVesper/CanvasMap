@@ -1,14 +1,10 @@
-import Sprite from './Sprite';
+import { Sprite, SpriteOpts } from './Sprite';
 
-interface TextOpts {
-    id?: string
-
-    x: number
-    y: number
-
+interface TextOpts extends SpriteOpts {
     text: string
-    font: string
-    align: CanvasTextDrawingStyles[`textAlign`]
+    font?: string
+
+    align?: CanvasTextDrawingStyles[`textAlign`]
     baseline?: CanvasTextDrawingStyles[`textBaseline`]
 
     size: number
@@ -21,9 +17,9 @@ interface TextOpts {
 }
 class Text extends Sprite implements TextOpts {
     text: TextOpts[`text`];
-    font: TextOpts[`font`];
-    align: TextOpts[`align`];
-    baseline: TextOpts[`baseline`];
+    font: string;
+    align: CanvasTextDrawingStyles[`textAlign`];
+    baseline: CanvasTextDrawingStyles[`textBaseline`];
 
     size: TextOpts[`size`];
 
@@ -31,11 +27,11 @@ class Text extends Sprite implements TextOpts {
     stroke: TextOpts[`stroke`];
 
     constructor (opts: TextOpts) {
-        super(opts.id);
+        super(opts.id, opts.x, opts.y);
 
         this.text = opts.text;
-        this.font = opts.font;
-        this.align = opts.align;
+        this.font = opts.font ?? `serif`;
+        this.align = opts.align ?? `center`;
         this.baseline = opts.baseline ?? `alphabetic`;
 
         this.fill = opts.fill;

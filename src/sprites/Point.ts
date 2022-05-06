@@ -1,14 +1,9 @@
-import Sprite from './Sprite';
+import { Sprite, SpriteOpts } from './Sprite';
 
-interface PointOpts {
-    id?: string
+interface PointOpts extends SpriteOpts {
+    radius: number
 
-    x: number;
-    y: number;
-
-    radius: number;
-
-    fill?: string;
+    fill?: string
     stroke?: {
         color: string
         width: number
@@ -21,7 +16,7 @@ class Point extends Sprite implements PointOpts {
     stroke: PointOpts[`stroke`];
 
     constructor (opts: PointOpts) {
-        super(opts.id);
+        super(opts.id, opts.x, opts.y);
 
         this.radius = opts.radius;
 
@@ -34,19 +29,18 @@ class Point extends Sprite implements PointOpts {
             context.fillStyle = this.fill;
 
             context.beginPath();
-            context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, !0);
+            context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             context.fill();
         }
 
         if (this.stroke !== undefined) {
-            context.strokeStyle = this.stroke.color
-            context.lineWidth = this.stroke.width * this.scale.width
+            context.strokeStyle = this.stroke.color;
+            context.lineWidth = this.stroke.width * this.scale.width;
 
             context.beginPath();
-            context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, !0)
+            context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
             context.stroke();
         }
-
     };
 }
 
