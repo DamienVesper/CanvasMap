@@ -1,6 +1,10 @@
 # CanvasMap
 A canvas mapping library, ported to TypeScript.
 
+<div align="center">
+    <img src="https://shields.io/github/package-json/v/DamienVesper/CanvasMap?style=for-the-badge&color=5e03fc">
+</div>
+
 ## Usage
 ```ts
 import { CanvasMap, Text } from '@damienvesper/canvas-map';
