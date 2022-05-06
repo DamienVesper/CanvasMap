@@ -26,11 +26,16 @@ class Text extends Sprite implements TextOpts {
     fill: TextOpts[`fill`];
     stroke: TextOpts[`stroke`];
 
+    /**
+     * Create a new Text sprite.
+     * @param opts Sprite options.
+     */
     constructor (opts: TextOpts) {
         super(opts.id, opts.x, opts.y);
 
         this.text = opts.text;
         this.font = opts.font ?? `serif`;
+        this.size = opts.size;
         this.align = opts.align ?? `center`;
         this.baseline = opts.baseline ?? `alphabetic`;
 
@@ -40,7 +45,7 @@ class Text extends Sprite implements TextOpts {
 
     public readonly draw = (context: CanvasRenderingContext2D): void => {
         context.textAlign = this.align;
-        if (this.baseline !== undefined) context.textBaseline = this.baseline;
+        context.textBaseline = this.baseline;
 
         context.font = `${this.size}px ${this.font}`;
 

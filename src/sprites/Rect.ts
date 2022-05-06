@@ -18,6 +18,10 @@ class Rect extends Sprite implements RectOpts {
     fill: RectOpts[`fill`];
     stroke: RectOpts[`stroke`];
 
+    /**
+     * Create a new Rectangle sprite.
+     * @param opts Sprite options.
+     */
     constructor (opts: RectOpts) {
         super(opts.id, opts.x, opts.y);
 

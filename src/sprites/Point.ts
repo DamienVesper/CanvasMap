@@ -15,6 +15,10 @@ class Point extends Sprite implements PointOpts {
     fill: PointOpts[`fill`];
     stroke: PointOpts[`stroke`];
 
+    /**
+     * Create a new Point sprite.
+     * @param opts Sprite options.
+     */
     constructor (opts: PointOpts) {
         super(opts.id, opts.x, opts.y);
 

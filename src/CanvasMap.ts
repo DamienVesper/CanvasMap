@@ -18,6 +18,13 @@ class CanvasMap {
     zoom: number;
     useRadians: boolean;
 
+    /**
+     * Create a CanvasMap instance.
+     * @param canvas The canvas to render to.
+     * @param width The width of the world.
+     * @param height The height of the world.
+     * @param useRadians Whether to use degrees or radians.
+     */
     constructor (canvas: HTMLCanvasElement, width: number, height: number, useRadians?: false) {
         const context = canvas.getContext(`2d`);
         if (context === null) throw new Error(`[CanvasMap]: Error getting canvas context.`);
@@ -45,7 +52,7 @@ class CanvasMap {
      * Add a sprite to the canvas.
      * @param sprite A CanvasMap sprite.
      */
-    public readonly add = (sprite: Sprite): void => {
+    public readonly add = (sprite: Sprite): CanvasMap => {
         sprite.scale = this.scale;
 
         sprite.x *= this.scale.width;
@@ -61,20 +68,22 @@ class CanvasMap {
         if (sprite instanceof Triangle && !this.useRadians) sprite.rotation *= Math.PI / 180;
 
         this.elements.set(sprite.id, sprite);
+        return this;
     };
 
     /**
      * Remove a sprite from the canvas..
      * @param id The ID of the sprite.
      */
-    public readonly remove = (id: string): void => {
+    public readonly remove = (id: string): CanvasMap => {
         this.elements.delete(id);
+        return this;
     };
 
     /**
      * Draw all elements.
      */
-    public readonly draw = (): void => {
+    public readonly draw = (): CanvasMap => {
         const fov = {
             width: this.context.canvas.width * this.zoom,
             height: this.context.canvas.height * this.zoom
@@ -93,13 +102,15 @@ class CanvasMap {
         this.context.scale(this.zoom, this.zoom);
 
         for (const sprite of this.elements.values()) sprite.draw(this.context);
+        return this;
     };
 
     /**
      * Clear all elements.
      */
-    public readonly clear = (): void => {
+    public readonly clear = (): CanvasMap => {
         for (const id of this.elements.keys()) this.elements.delete(id);
+        return this;
     };
 }
 

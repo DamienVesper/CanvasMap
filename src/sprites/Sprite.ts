@@ -1,5 +1,5 @@
 interface SpriteOpts {
-    id: string
+    readonly id: string
 
     x: number
     y: number

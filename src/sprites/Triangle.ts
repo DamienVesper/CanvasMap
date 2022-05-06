@@ -18,6 +18,10 @@ class Triangle extends Sprite implements TriangleOpts {
     fill: TriangleOpts[`fill`];
     stroke: TriangleOpts[`stroke`];
 
+    /**
+     * Create a new Triangle sprite.
+     * @param opts Sprite options.
+     */
     constructor (opts: TriangleOpts) {
         super(opts.id, opts.x, opts.y);
 
