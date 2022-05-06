@@ -1,8 +1,10 @@
-# CanvasMap
-A canvas mapping library, ported to TypeScript.
-
 <div align="center">
-    <img src="https://shields.io/github/package-json/v/DamienVesper/CanvasMap?style=for-the-badge&color=5e03fc">
+    <h1>@damienvesper/canvas-map</h1>
+    <p>A canvas mapping library, ported to TypeScript.</p>
+    <div>
+        <img src="https://shields.io/github/package-json/v/DamienVesper/CanvasMap?style=for-the-badge&color=5e03fc">
+    </div>
+    <hr />
 </div>
 
 ## Usage
