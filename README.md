@@ -16,7 +16,7 @@ const map = new CanvasMap(canvas, 200, 200);
 
 // Add a text to the map.
 map.add(new Text({
-    id: `${landmark.id}-label`,
+    id: `hello-world-text`,
     x: 100,
     y: 100,
     text: `Hello World`,
